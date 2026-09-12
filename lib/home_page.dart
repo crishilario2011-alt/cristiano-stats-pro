@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'jogos_page.dart';
 import 'analises_page.dart';
 import 'jogadores_page.dart';
-
+import 'scanner_page.dart';
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
