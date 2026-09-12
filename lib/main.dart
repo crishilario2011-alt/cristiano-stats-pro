@@ -5,6 +5,7 @@ import 'jogos_page.dart';
 import 'analises_page.dart';
 import 'jogadores_page.dart';
 import 'scanner_page.dart';
+import 'estatisticas_page.dart';
 
 void main() {
   runApp(const CristianoStatsPro());
