@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'jogos_page.dart';
+import 'analises_page.dart';
+import 'jogadores_page.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -15,13 +19,20 @@ class HomePage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
+
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
+
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+
           children: [
+
+            const SizedBox(height: 10),
+
             const Text(
-              'Análises Profissionais de Futebol',
+              'Central de Estatísticas',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -31,71 +42,101 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 8),
 
             const Text(
-              'Estatísticas • Jogadores • Mercados • Probabilidades',
+              'Análises profissionais de futebol e apostas',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
-                color: Colors.grey,
               ),
             ),
 
-            const SizedBox(height: 24),
+            const SizedBox(height: 30),
 
-            _buildCard(
+            _menuButton(
+              context,
               icon: Icons.sports_soccer,
-              title: 'Análise de Jogos',
+              title: 'Jogos de Hoje',
+              subtitle: 'Confira os principais jogos',
+              page: const JogosPage(),
+            ),
+
+            _menuButton(
+              context,
+              icon: Icons.analytics,
+              title: 'Análises Profissionais',
               subtitle: 'Estatísticas completas das equipes',
+              page: const AnalisesPage(),
             ),
 
-            const SizedBox(height: 12),
-
-            _buildCard(
-              icon: Icons.person,
-              title: 'Estatísticas de Jogadores',
-              subtitle: 'Finalizações, faltas e desarmes',
+            _menuButton(
+              context,
+              icon: Icons.people,
+              title: 'Jogadores',
+              subtitle: 'Faltas, finalizações e desarmes',
+              page: const JogadoresPage(),
             ),
 
-            const SizedBox(height: 12),
-
-            _buildCard(
+            _menuButton(
+              context,
               icon: Icons.bar_chart,
-              title: 'Mercados de Apostas',
-              subtitle: 'Análises estatísticas profissionais',
+              title: 'Estatísticas',
+              subtitle: 'Dados avançados das partidas',
+              page: const AnalisesPage(),
             ),
 
-            const SizedBox(height: 12),
-
-            _buildCard(
+            _menuButton(
+              context,
               icon: Icons.trending_up,
-              title: 'Probabilidades',
-              subtitle: 'Estudo de tendências e desempenho',
+              title: 'Mercado de Apostas',
+              subtitle: 'Probabilidades e oportunidades',
+              page: const AnalisesPage(),
             ),
+
           ],
         ),
       ),
     );
   }
 
-  Widget _buildCard({
+  Widget _menuButton(
+    BuildContext context, {
     required IconData icon,
     required String title,
     required String subtitle,
+    required Widget page,
   }) {
     return Card(
-      elevation: 4,
+      margin: const EdgeInsets.only(bottom: 16),
+
       child: ListTile(
-        leading: CircleAvatar(
-          child: Icon(icon),
+        contentPadding: const EdgeInsets.all(16),
+
+        leading: Icon(
+          icon,
+          size: 35,
         ),
+
         title: Text(
           title,
           style: const TextStyle(
             fontWeight: FontWeight.bold,
+            fontSize: 18,
           ),
         ),
+
         subtitle: Text(subtitle),
+
         trailing: const Icon(
           Icons.arrow_forward_ios,
         ),
+
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => page,
+            ),
+          );
+        },
       ),
     );
   }
