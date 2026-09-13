@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
               'Central de Estatísticas',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 26,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -44,55 +44,66 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 8),
 
             const Text(
-              'Análises profissionais de futebol e apostas',
+              'Análises profissionais para futebol e apostas esportivas',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 16,
               ),
             ),
 
-            const SizedBox(height: 30),
+            const SizedBox(height: 25),
 
             _menuButton(
               context,
               icon: Icons.sports_soccer,
               title: 'Jogos de Hoje',
-              subtitle: 'Confira os principais jogos',
+              subtitle: 'Jogos, horários e informações',
               page: const JogosPage(),
             ),
 
             _menuButton(
               context,
-              icon: Icons.analytics,
+              icon: Icons.trending_up,
               title: 'Análises Profissionais',
-              subtitle: 'Estatísticas completas das equipes',
+              subtitle: 'Probabilidades e mercados',
               page: const AnalisesPage(),
             ),
 
             _menuButton(
               context,
-              icon: Icons.people,
-              title: 'Jogadores',
-              subtitle: 'Faltas, finalizações e desarmes',
+              icon: Icons.person_search,
+              title: 'Estatísticas de Jogadores',
+              subtitle: 'Finalizações, faltas e desarmes',
               page: const JogadoresPage(),
+            ),
+
+            _menuButton(
+              context,
+              icon: Icons.document_scanner,
+              title: 'Scanner de Jogos',
+              subtitle: 'Encontre oportunidades estatísticas',
+              page: const ScannerPage(),
             ),
 
             _menuButton(
               context,
               icon: Icons.bar_chart,
               title: 'Estatísticas',
-              subtitle: 'Dados avançados das partidas',
+              subtitle: 'Dados completos das equipes',
               page: const EstatisticasPage(),
             ),
 
-            _menuButton(
-              context,
-              icon: Icons.trending_up,
-              title: 'Mercado de Apostas',
-              subtitle: 'Probabilidades e oportunidades',
-              page: const AnalisesPage(),
+            const SizedBox(height: 25),
+
+            const Text(
+              'Cristiano Stats Pro v1.0',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 14,
+              ),
             ),
 
+            const SizedBox(height: 10),
           ],
         ),
       ),
@@ -107,7 +118,7 @@ class HomePage extends StatelessWidget {
     required Widget page,
   }) {
     return Card(
-      margin: const EdgeInsets.only(bottom: 16),
+      margin: const EdgeInsets.only(bottom: 14),
 
       child: ListTile(
         contentPadding: const EdgeInsets.all(16),
