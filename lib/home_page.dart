@@ -81,7 +81,7 @@ class HomePage extends StatelessWidget {
               icon: Icons.bar_chart,
               title: 'Estatísticas',
               subtitle: 'Dados avançados das partidas',
-              page: const AnalisesPage(),
+              page: const EstatisticasPage(),
             ),
 
             _menuButton(
